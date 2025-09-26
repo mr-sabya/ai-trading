@@ -128,7 +128,7 @@
     </div>
     <div class="pricing__shape">
         <span class="pricing__shape-item pricing__shape-item--1"> <span></span> </span>
-        <span class="pricing__shape-item pricing__shape-item--2"> <img src="assets/images/icon/1.png" alt="shape-icon">
+        <span class="pricing__shape-item pricing__shape-item--2"> <img src="{{ url('assets/frontend/images/icon/1.png') }}" alt="shape-icon">
         </span>
     </div>
 </section>

@@ -1,5 +1,7 @@
+document.addEventListener('livewire:navigated', () => {
+
 // =================== preloader js  ================== //
-document.addEventListener('DOMContentLoaded', function () {
+
     var preloader = document.querySelector('.preloader');
     preloader.style.transition = 'opacity 0.5s ease';
     // Hide the preloader 1 second (1000 milliseconds) after DOM content is loaded
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             preloader.style.display = 'none';
         }, 500); // .5 seconds for the fade-out transition
     }, 1000); // 1 second delay before starting the fade-out effect
-});
+
 // =================== preloader js end ================== //
 
 
@@ -80,7 +82,7 @@ function changeImage(themeMode = 'light') {
 
     if (themeMode === "dark") {
 
-        icon.src = './assets/images/icon/sun.svg';
+        icon.src = './assets/frontend/images/icon/sun.svg';
         var images = document.querySelectorAll('img.dark');
 
         for (var i = 0; i < images.length; i++) {
@@ -93,7 +95,7 @@ function changeImage(themeMode = 'light') {
             images[i].src = newSrc;
         }
     } else {
-        icon.src = './assets/images/icon/moon.svg';
+        icon.src = './assets/frontend/images/icon/moon.svg';
         var images = document.querySelectorAll('img.dark');
 
         for (var i = 0; i < images.length; i++) {
@@ -454,3 +456,4 @@ if (htmlTag.getAttribute('dir') === 'rtl') {
     toggleAllIconsDirection();
 }
 // =================== rtl icon direction chnage end here =================== //
+});

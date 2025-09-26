@@ -14,7 +14,7 @@
                                     <div class="footer__app-inner">
                                         <div class="footer__app-thumb">
                                             <a href="https://www.apple.com/app-store/" target="_blank" class="stretched-link">
-                                                <img src="assets/images/footer/apple.png" alt="apple-icon">
+                                                <img src="{{ url('assets/frontend/images/footer/apple.png') }}" alt="apple-icon">
                                             </a>
                                         </div>
                                         <div class="footer__app-content">
@@ -27,7 +27,7 @@
                                     <div class="footer__app-inner">
                                         <div class="footer__app-thumb">
                                             <a href="https://play.google.com/store" target="_blank" class="stretched-link">
-                                                <img src="assets/images/footer/play.png" alt="playstore-icon">
+                                                <img src="{{ url('assets/frontend/images/footer/play.png') }}" alt="playstore-icon">
                                             </a>
                                         </div>
                                         <div class="footer__app-content">

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-
 <head>
     <title>Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business
     </title>
@@ -49,9 +47,30 @@
 <body>
 
     <!-- ===============>> Preloader start here <<================= -->
-    <div class="preloader">
-        <img src="{{ url('assets/frontend/images/logo/preloader.png') }}" alt="preloader icon">
+    <div
+        x-data="{ loading: true }"
+        x-init="
+        if (sessionStorage.getItem('preloaderShown')) {
+            loading = false;
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loading = false;
+                    sessionStorage.setItem('preloaderShown', 'true');
+                }, 1500); // adjust timing if needed
+            });
+        }
+    ">
+        <!-- Start Preloader -->
+        <div class="preloader"
+            x-show="loading"
+            x-transition.opacity.duration.500ms>
+            <img src="{{ url('assets/frontend/images/logo/preloader.png') }}" alt="preloader icon">
+        </div>
+        <!-- End Preloader -->
     </div>
+
+
     <!-- ===============>> Preloader end here <<================= -->
 
 
@@ -62,9 +81,6 @@
                 class="swtich-icon"></span>
     </div>
     <!-- ===============>> light&dark switch start here <<================= -->
-
-
-
 
 
     <!-- ===============>> Header section start here <<================= -->
@@ -89,16 +105,16 @@
 
     <!-- vendor plugins -->
 
-    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/all.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/aos.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/fslightbox.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/purecounter_vanilla.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/all.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/swiper-bundle.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/aos.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/fslightbox.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/purecounter_vanilla.js') }}"></script>
 
 
 
-    <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/frontend/js/custom.js') }}"></script>
 
     @livewireScripts
 

@@ -1,4 +1,4 @@
-<header class="header-section header-section--style2">
+<header class="header-section {{ Route::is('home.index') ? 'header-section--style2' : 'bg-color-3' }}">
     <div class="header-bottom">
         <div class="container">
             <div class="header-wrapper">
@@ -13,19 +13,18 @@
                             <a href="{{ route('home.index')}}" wire:navigate>Home</a>
                         </li>
                         <li>
-                            <a href="#">Services</a>
+                            <a href="{{ route('service.index') }}" wire:navigate>Services</a>
 
                         </li>
                         <li>
-                            <a href="#">About</a>
-
+                            <a href="{{ route('about.index') }}" wire:navigate>About</a>
                         </li>
 
                         <li>
-                            <a href="#">Pages</a>
+                            <a href="{{ route('package.index') }}" wire:navigate>Packages</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact Us</a>
+                            <a href="{{ route('contact.index') }}" wire:navigate>Contact Us</a>
                         </li>
                     </ul>
 
@@ -33,7 +32,7 @@
                 <div class="header-action">
                     <div class="menu-area">
                         <div class="header-btn">
-                            <a href="signup.html" class="trk-btn trk-btn--border trk-btn--primary">
+                            <a href="{{ route('register') }}" wire:navigate class="trk-btn trk-btn--border trk-btn--primary">
                                 <span>Join Now</span>
                             </a>
                         </div>

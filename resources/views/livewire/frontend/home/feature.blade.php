@@ -164,7 +164,7 @@
         </div>
     </div>
     <div class="feature__shape">
-        <span class="feature__shape-item feature__shape-item--1"><img src="assets/images/feature/shape/1.png"
+        <span class="feature__shape-item feature__shape-item--1"><img src="{{ url('assets/frontend/images/feature/shape/1.png') }}"
                 alt="shape-icon"></span>
         <span class="feature__shape-item feature__shape-item--2"> <span></span> </span>
     </div>

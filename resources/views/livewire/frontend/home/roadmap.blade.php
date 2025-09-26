@@ -108,7 +108,7 @@
     </div>
     <div class="roadmap__shape">
         <span class="roadmap__shape-item roadmap__shape-item--1"> <span></span> </span>
-        <span class="roadmap__shape-item roadmap__shape-item--2"> <img src="assets/images/icon/1.png" alt="shape-icon">
+        <span class="roadmap__shape-item roadmap__shape-item--2"> <img src="{{ url('assets/frontend/images/icon/1.png') }}" alt="shape-icon">
         </span>
     </div>
 </section>

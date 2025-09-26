@@ -29,7 +29,7 @@
                                     <div class="testimonial__footer">
                                         <div class="testimonial__author">
                                             <div class="testimonial__author-thumb">
-                                                <img src="assets/images/testimonial/1.png" alt="author">
+                                                <img src="{{ url('assets/frontend/images/testimonial/1.png') }}" alt="author">
                                             </div>
                                             <div class="testimonial__author-designation">
                                                 <h6>Mobarok Hossain</h6>
