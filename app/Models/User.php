@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'refer_code', // Add this
+        'refer_id',   // Add this
+        'image',      // Add this
     ];
 
     /**
@@ -43,6 +47,23 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
+    }
+
+    /**
+     * Get the user who referred this user.
+     */
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'refer_id');
+    }
+
+    /**
+     * Get the users that were referred by this user.
+     */
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'refer_id');
     }
 }

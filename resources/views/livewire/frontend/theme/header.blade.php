@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header-wrapper">
                 <div class="logo">
-                    <a href="index-2.html">
+                    <a href="{{ route('home.index')}}" wire:navigate>
                         <img class="dark" src="{{ url('assets/frontend/images/logo/logo.png') }}" alt="logo">
                     </a>
                 </div>
