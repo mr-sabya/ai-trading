@@ -20,23 +20,5 @@
                 @endif
             </ul>
         </nav>
-
-        <!-- Center Copyright -->
-        <div class="copyright text-center">
-            {{ date('Y') }}, made with <i class="fa fa-heart heart text-danger"></i> by
-            <a href="{{ $settings->author_url ?? '#' }}">
-                {{ $settings->author_name ?? 'Sabya Roy' }}
-            </a>
-        </div>
-
-        <!-- Right Distributed By -->
-        @if($settings->distributed_by ?? false)
-        <div class="text-end">
-            Distributed by
-            <a target="_blank" href="{{ $settings->distributed_url ?? '#' }}">
-                {{ $settings->distributed_by }}
-            </a>.
-        </div>
-        @endif
     </div>
 </footer>

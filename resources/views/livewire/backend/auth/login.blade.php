@@ -1,11 +1,17 @@
 <div class="login-card">
     <!-- logo -->
     <div class="d-flex justify-content-center mb-4">
-        <a href="/" class="text-center">
-            <img src="{{ url('assets/backend/img/kaiadmin/logo_dark.svg') }}" alt="CoreDesk Logo" class="login-logo" style="width: 200px;">
+        <a href="{{ route('home.index') }}" class="text-center">
+            <img 
+                src="{{ $settings->dark_logo ? asset('storage/' . $settings->dark_logo) : url('assets/backend/img/kaiadmin/logo_dark.svg') }}" 
+                alt="{{ $settings->website_name ?? 'Website' }}" 
+                class="login-logo" 
+                style="width: 200px;"
+            >
         </a>
     </div>
-    <h3 class="mb-5">Welcome to CoreDesk</h3>
+
+    <h3 class="mb-3">Welcome to {{ $settings->website_name ?? 'Our Platform' }}</h3>
 
     {{-- The form now calls the 'login' method on submission --}}
     <form wire:submit.prevent="login">
@@ -14,10 +20,7 @@
         <!-- Email -->
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            {{-- wire:model binds this input to the $email property in the component --}}
             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" wire:model="email" placeholder="Enter your email" required autofocus>
-
-            {{-- This will display any validation or authentication errors --}}
             @error('email')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -27,7 +30,6 @@
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" wire:model="password" placeholder="Enter password" required>
-
             @error('password')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -41,13 +43,8 @@
 
         <!-- Submit Button with Loading State -->
         <button type="submit" class="btn btn-login w-100" wire:loading.attr="disabled">
-            {{-- Show different text based on the loading state of the 'login' action --}}
-            <span wire:loading.remove wire:target="login">
-                Login
-            </span>
-            <span wire:loading wire:target="login">
-                Processing...
-            </span>
+            <span wire:loading.remove wire:target="login">Login</span>
+            <span wire:loading wire:target="login">Processing...</span>
         </button>
     </form>
 </div>
