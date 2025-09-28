@@ -10,4 +10,22 @@ Route::get('/login', [App\Http\Controllers\Backend\AuthController::class, 'showL
 Route::middleware(['admin'])->group(function () {
     // Admin Dashboard
     Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index'])->name('dashboard');
+
+    // add package index route
+    Route::get('/packages', [App\Http\Controllers\Backend\PackageController::class, 'index'])->name('packages.index');
+    // feature route
+    Route::get('/packages/{package}/features', [App\Http\Controllers\Backend\PackageController::class, 'feature'])->name('packages.features');
+
+    // ReferralGenerationController
+    Route::get('/referral-generation', [App\Http\Controllers\Backend\ReferralGenerationController::class, 'index'])->name('referral-generation.index');
+
+    // Settings group
+    Route::prefix('settings')->name('settings.')->group(function () {
+        Route::get('site-info', [App\Http\Controllers\Backend\SettingController::class, 'siteInfo'])->name('site-info');
+        Route::get('logos', [App\Http\Controllers\Backend\SettingController::class, 'logos'])->name('logos');
+        Route::get('social-links', [App\Http\Controllers\Backend\SettingController::class, 'socialLinks'])->name('social-links');
+        Route::get('seo', [App\Http\Controllers\Backend\SettingController::class, 'seo'])->name('seo');
+        Route::get('additional', [App\Http\Controllers\Backend\SettingController::class, 'additional'])->name('additional');
+    });
+
 });

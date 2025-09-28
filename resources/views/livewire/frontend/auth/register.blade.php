@@ -14,65 +14,58 @@
                         </div>
 
                         <!-- account social -->
-                        <div class="account__social">
+                        <!-- <div class="account__social">
                             <a href="#" class="account__social-btn"><span><img src="{{ url('assets/frontend/images/others/google.svg') }}"
                                         alt="google icon"></span>
                                 Continue with google
                             </a>
-                        </div>
+                        </div> -->
 
                         <!-- account divider -->
-                        <div class="account__divider account__divider--style1">
+                        <!-- <div class="account__divider account__divider--style1">
                             <span>or</span>
-                        </div>
+                        </div> -->
 
                         <!-- account form -->
-                        <form action="#" class="account__form needs-validation" novalidate>
+                        <form wire:submit.prevent="register" class="account__form needs-validation" novalidate>
                             <div class="row g-4">
                                 <div class="col-12 col-md-6">
-                                    <div>
-                                        <label for="first-name" class="form-label">First name</label>
-                                        <input class="form-control" type="text" id="first-name" placeholder="Ex. Jhon">
-                                    </div>
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" wire:model="first_name" class="form-control @error('first_name') is-invalid @enderror" placeholder="Ex. John">
+                                    @error('first_name') <span class="invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <div>
-                                        <label for="last-name" class="form-label">Last name</label>
-                                        <input class="form-control" type="text" id="last-name" placeholder="Ex. Doe">
-                                    </div>
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" wire:model="last_name" class="form-control @error('last_name') is-invalid @enderror" placeholder="Ex. Doe">
+                                    @error('last_name') <span class="invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="col-12">
-                                    <div>
-                                        <label for="account-email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="account-email" placeholder="Enter your email"
-                                            required>
-                                    </div>
+                                    <label class="form-label">Email</label>
+                                    <input type="email" wire:model="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter your email">
+                                    @error('email') <span class="invalid-feedback">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-pass">
-                                        <label for="account-pass" class="form-label">Password</label>
-                                        <input type="password" class="form-control showhide-pass" id="account-pass" placeholder="Password"
-                                            required>
+                                    <label class="form-label">Password</label>
+                                    <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                    @error('password') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Confirm Password</label>
+                                    <input type="password" wire:model="password_confirmation" class="form-control" placeholder="Re-type password">
+                                </div>
 
-                                        <button type="button" id="btnToggle" class="form-pass__toggle"><i id="eyeIcon1"
-                                                class="fa fa-eye"></i></button>
-                                    </div>
-                                </div>
                                 <div class="col-12">
-                                    <div class="form-pass">
-                                        <label for="account-cpass" class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control showhide-pass" id="account-cpass"
-                                            placeholder="Re-type password" required>
+                                    <label class="form-label">Referral Code (Optional)</label>
+                                    <input type="text" wire:model="refer_code" class="form-control @error('refer_code') is-invalid @enderror" placeholder="Enter referral code if you have one">
+                                    @error('refer_code') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                                </div>
 
-                                        <button type="button" id="btnCToggle" class="form-pass__toggle"><i id="eyeIcon2"
-                                                class="fa fa-eye"></i></button>
-                                    </div>
+                                <div class="col-12">
+                                    <button type="submit" class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign Up</button>
                                 </div>
                             </div>
-
-
-                            <button type="submit" class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign Up</button>
                         </form>
+
 
 
                         <div class="account__switch">

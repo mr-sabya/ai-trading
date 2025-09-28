@@ -24,3 +24,13 @@ Route::get('/singup', [App\Http\Controllers\Frontend\AuthController::class, 'reg
 
 // show login page
 Route::get('/login', [App\Http\Controllers\Frontend\AuthController::class, 'login'])->name('login');
+
+// profile page
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\Frontend\User\ProfileController::class, 'dashboard'])->name('dashboard.index');
+
+    Route::get('/profile', [App\Http\Controllers\Frontend\User\ProfileController::class, 'index'])->name('profile.index');
+
+    // package page
+    Route::get('/user/package', [App\Http\Controllers\Frontend\User\ProfileController::class, 'package'])->name('profile.package');
+});

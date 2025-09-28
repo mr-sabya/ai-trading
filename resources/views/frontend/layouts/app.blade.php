@@ -2,8 +2,11 @@
 <html lang="en" data-bs-theme="light">
 
 <head>
-    <title>Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business
+    <title>
+        {{ $settings->website_name ?? 'MyWebsite' }} - {{ $settings->tagline ?? 'Your Trusted Partner in Trading and Investments' }}
     </title>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,7 +79,7 @@
 
 
     <!-- ===============>> light&dark switch start here <<================= -->
-    <div class="lightdark-switch">
+    <div class="lightdark-switch" style="display: none;">
         <span class="switch-btn" id="btnSwitch"><img src="{{ url('assets/frontend/images/icon/moon.svg') }}" alt="light-dark-switchbtn"
                 class="swtich-icon"></span>
     </div>

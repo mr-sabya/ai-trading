@@ -16,13 +16,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        
+
         // admin user
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('admin@12345'), // Set a default password
-            'is_admin' => true,
-        ]);
+        // User::create([
+        //     'name' => 'Admin User',
+        //     'email' => 'admin@example.com',
+        //     'password' => Hash::make('admin@12345'), // Set a default password
+        //     'is_admin' => true,
+        // ]);
+
+        $this->call(SettingSeeder::class);
     }
 }
