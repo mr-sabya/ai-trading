@@ -75,6 +75,28 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item {{ Request::routeIs('admin.user.*') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#userMenu" aria-expanded="{{ Request::routeIs('admin.user.*') ? 'true' : 'false' }}">
+                        <i class="fas fa-cog"></i>
+                        <p>Users</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse {{ Request::routeIs('admin.user.*') ? 'show' : '' }}" id="userMenu">
+                        <ul class="nav nav-collapse">
+                            <li class="{{ Request::routeIs('admin.user.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.user.index') }}" wire:navigate>
+                                    <span class="sub-item">Users List</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::routeIs('admin.user.create') ? 'active' : '' }}">
+                                <a href="{{ route('admin.user.create') }}" wire:navigate>
+                                    <span class="sub-item">Add User</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item {{ Request::routeIs('admin.packages.*') ? 'active' : '' }}">
                     <a href="{{ route('admin.packages.index')}}" wire:navigate>

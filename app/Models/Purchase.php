@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'user_id',
         'package_id',
@@ -17,7 +17,13 @@ class Purchase extends Model
         'renew_price',
         'status',
         'expires_at',
+        'binance_order_id',
     ];
+
+    protected $casts = [
+        'expires_at' => 'datetime',
+    ];
+
 
     protected $dates = ['expires_at'];
 

@@ -3,8 +3,8 @@
 namespace App\Livewire\Backend\ReferralGeneration;
 
 use Livewire\Component;
-use Livewire\WithPagination;
 use App\Models\ReferralGeneration;
+use Livewire\WithPagination;
 
 class Index extends Component
 {

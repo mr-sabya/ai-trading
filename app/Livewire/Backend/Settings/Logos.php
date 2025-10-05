@@ -44,7 +44,7 @@ class Logos extends Component
 
     public function save()
     {
-        $settings = Setting::firstOrNew([]);
+        $settings = Setting::first();
 
         if ($this->light_logo) {
             $settings->light_logo = $this->light_logo->store('settings', 'public');

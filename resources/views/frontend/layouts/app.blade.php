@@ -31,7 +31,7 @@
 
 
 
-    <link rel="shortcut icon" href="{{ asset('assets/frontend/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ $settings->favicon ? asset('storage/' . $settings->favicon) : asset('assets/frontend/images/favicon.png') }}" type="image/x-icon">
 
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/aos.css') }}">

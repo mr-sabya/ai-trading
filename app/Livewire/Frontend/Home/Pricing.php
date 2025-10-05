@@ -5,6 +5,8 @@ namespace App\Livewire\Frontend\Home;
 use Livewire\Component;
 use App\Models\Package;
 use App\Models\Purchase;
+use App\Models\User;
+use App\Notifications\NewPurchaseNotification;
 use Illuminate\Support\Facades\Auth;
 
 class Pricing extends Component
@@ -14,7 +16,6 @@ class Pricing extends Component
     public function mount()
     {
         if (Auth::check()) {
-            // Get all purchases of the logged-in user
             $this->purchases = Purchase::with('package')
                 ->where('user_id', Auth::id())
                 ->get();
@@ -34,7 +35,6 @@ class Pricing extends Component
         ]);
     }
 
-    // Check if user has already purchased this package
     public function hasPurchased($packageId)
     {
         if (!Auth::check()) return false;
@@ -43,4 +43,6 @@ class Pricing extends Component
             return $purchase->package_id == $packageId && $purchase->isActive();
         });
     }
+
+    
 }

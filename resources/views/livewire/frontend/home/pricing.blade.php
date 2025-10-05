@@ -31,12 +31,21 @@
                                 </div>
 
                                 <!-- Bottom -->
-                                <!-- Bottom -->
                                 <div class="pricing__item-bottom">
                                     @if($this->hasPurchased($package->id))
                                     <span class="trk-btn trk-btn--outline disabled">Already Purchased</span>
                                     @else
-                                    <a href="#" class="trk-btn trk-btn--outline {{ $loop->first ? 'active' : '' }}">Choose Plan</a>
+                                    @auth
+                                    <a href="{{ route('checkout.index', $package->id) }}" wire:navigate
+                                        class="trk-btn trk-btn--outline {{ $loop->first ? 'active' : '' }}">
+                                        Choose Plan
+                                    </a>
+                                    @else
+                                    <a href="{{ route('login') }}" wire:navigate
+                                        class="trk-btn trk-btn--outline {{ $loop->first ? 'active' : '' }}">
+                                        Choose Plan
+                                    </a>
+                                    @endauth
                                     @endif
                                 </div>
 

@@ -33,4 +33,8 @@ Route::middleware(['auth'])->group(function () {
 
     // package page
     Route::get('/user/package', [App\Http\Controllers\Frontend\User\ProfileController::class, 'package'])->name('profile.package');
+    
+    // checkout
+    Route::get('/user/checkout/package/{id}', [App\Http\Controllers\Frontend\PageController::class, 'checkout'])->name('checkout.index');
+
 });

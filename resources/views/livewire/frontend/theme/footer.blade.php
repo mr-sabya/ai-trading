@@ -45,39 +45,51 @@
                     <!-- Quick Links -->
                     <div class="col-md-2 col-sm-4 col-6">
                         <div class="footer__links">
-                            <h6>Quick links</h6>
-                            <ul class="footer__linklist">
-                                <li><a href="{{ route('about.index') }}" wire:navigate>About Us</a></li>
-                                <li><a href="#" wire:navigate>Teams</a></li>
-                                <li><a href="{{ route('service.index') }}" wire:navigate>Services</a></li>
-                                <li><a href="#">Features</a></li>
-                            </ul>
+                            <div class="footer__links-tittle">
+                                <h6>Quick links</h6>
+                            </div>
+                            <div class="footer__links-content">
+                                <ul class="footer__linklist">
+                                    <li class="footer__linklist-item"><a href="{{ route('about.index') }}" wire:navigate>About Us</a></li>
+                                    <li class="footer__linklist-item"><a href="#" wire:navigate>Teams</a></li>
+                                    <li class="footer__linklist-item"><a href="{{ route('service.index') }}" wire:navigate>Services</a></li>
+                                    <li class="footer__linklist-item"><a href="#">Features</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Support Links -->
                     <div class="col-md-2 col-sm-4 col-6">
                         <div class="footer__links">
-                            <h6>Support</h6>
-                            <ul class="footer__linklist">
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="#">Support Center</a></li>
-                            </ul>
+                            <div class="footer__links-tittle">
+                                <h6>Support</h6>
+                            </div>
+                            <div class="footer__links-content">
+                                <ul class="footer__linklist">
+                                    <li class="footer__linklist-item"><a href="#">Terms & Conditions</a></li>
+                                    <li class="footer__linklist-item"><a href="#">Privacy Policy</a></li>
+                                    <li class="footer__linklist-item"><a href="#">FAQs</a></li>
+                                    <li class="footer__linklist-item"><a href="#">Support Center</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Company Links -->
                     <div class="col-md-2 col-sm-4">
                         <div class="footer__links">
-                            <h6>Company</h6>
-                            <ul class="footer__linklist">
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Updates</a></li>
-                                <li><a href="#">Job</a></li>
-                                <li><a href="#">Announce</a></li>
-                            </ul>
+                            <div class="footer__links-tittle">
+                                <h6>Company</h6>
+                            </div>
+                            <div class="footer__links-content">
+                                <ul class="footer__linklist">
+                                    <li class="footer__linklist-item"><a href="#">Careers</a></li>
+                                    <li class="footer__linklist-item"><a href="#">Updates</a></li>
+                                    <li class="footer__linklist-item"><a href="#">Job</a></li>
+                                    <li class="footer__linklist-item"><a href="#">Announce</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +100,7 @@
                 <div class="footer__end d-flex justify-content-between align-items-center">
                     <div class="footer__end-copyright">
                         <p class="mb-0">
-                            © {{ now()->year }} All Rights Reserved.
+                            All Rights Reserved
                             {{ $settings->copyright ?? 'By Your Company' }}
                         </p>
                     </div>

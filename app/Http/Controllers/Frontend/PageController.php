@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -29,5 +30,12 @@ class PageController extends Controller
     public function contact()
     {
         return view('frontend.contact.index');
+    }
+    
+    // checkout
+    public function checkout($id)
+    {
+        $package = Package::findOrFail(intval($id));
+        return view('frontend.checkout.index', compact('package'));
     }
 }
