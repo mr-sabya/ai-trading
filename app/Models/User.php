@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'is_admin',
         'refer_code', // Add this
-        'refer_id',   // Add this
+        'referrer_id',   // Add this
         'image',      // Add this
         'balance',
     ];
