@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('package_id')->constrained()->cascadeOnDelete();
             $table->decimal('first_price', 10, 2);
             $table->decimal('renew_price', 10, 2);
-            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('completed');
+            $table->enum('status', ['pending', 'approved', 'cancelled'])->default('pending');
             $table->timestamp('expires_at');
             $table->timestamps();
         });

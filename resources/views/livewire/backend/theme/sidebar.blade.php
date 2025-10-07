@@ -104,6 +104,12 @@
                         <p>Packages</p>
                     </a>
                 </li>
+                <li class="nav-item {{ Request::routeIs('admin.purchase.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.purchase.index')}}" wire:navigate>
+                        <i class="fas fa-box"></i>
+                        <p>Purchase List</p>
+                    </a>
+                </li>
 
                 <li class="nav-item {{ Request::routeIs('admin.referral-generation.*') ? 'active' : '' }}">
                     <a href="{{ route('admin.referral-generation.index')}}" wire:navigate>

@@ -4,7 +4,8 @@ namespace App\Livewire\Frontend\Checkout;
 
 use App\Models\Package;
 use App\Models\Purchase;
-use App\Models\PurchaseHistory;
+use App\Models\User; // Import the User model
+use App\Notifications\NewPurchaseNotification; // Import the Notification class
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Carbon\Carbon;
@@ -23,7 +24,7 @@ class Index extends Component
     ];
 
     protected $listeners = ['checkoutPackage' => 'loadPackage'];
-    
+
 
     public function mount($packageId = null)
     {
@@ -58,17 +59,24 @@ class Index extends Component
         $period = $this->package->billing_cycle === 'monthly' ? 1 : 12;
         $expiresAt = Carbon::now()->addMonths($period);
 
-        $purchase = Purchase::create([
+        // 1. Create the Purchase record
+        $purchase = Purchase::create([ // Store the created purchase in a variable
             'user_id' => $user->id,
             'package_id' => $this->package->id,
             'first_price' => $this->package->first_price,
             'renew_price' => $this->package->renew_price,
-            'status' => 'completed',
+            'status' => 'pending',
             'expires_at' => $expiresAt,
             'binance_order_id' => $this->binanceOrderId, // user input
         ]);
 
-        $purchase->recordHistory('initial', $this->package->first_price);
+        // 2. Find all admin users
+        $adminUsers = User::where('is_admin', true)->get();
+
+        // 3. Send the notification to each admin user
+        foreach ($adminUsers as $admin) {
+            $admin->notify(new NewPurchaseNotification($purchase));
+        }
 
         $this->dispatch('notify', [
             'type' => 'success',

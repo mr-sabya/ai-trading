@@ -21,10 +21,13 @@ Route::middleware(['admin'])->group(function () {
 
     // users
     Route::get('/users', [App\Http\Controllers\Backend\UserController::class, 'index'])->name('user.index');
-
+    
     Route::get('/user/create', [App\Http\Controllers\Backend\UserController::class, 'create'])->name('user.create');
-
+    
     Route::get('/user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'edit'])->name('user.edit');
+    
+    // purchase
+    Route::get('/purchase-list', [App\Http\Controllers\Backend\PurchaseController::class, 'index'])->name('purchase.index');
 
     // Settings group
     Route::prefix('settings')->name('settings.')->group(function () {

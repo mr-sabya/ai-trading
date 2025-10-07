@@ -66,7 +66,7 @@ class Register extends Component
 
         session()->flash('success', 'Account created successfully!');
 
-        return redirect()->route('frontend.dashboard');
+        return $this->redirect(route('dashboard.index'), navigate:true);
     }
 
     public function render()
