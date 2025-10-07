@@ -26,4 +26,11 @@ class UserController extends Controller
         $user = User::findOrFail(intval($id));
         return view('backend.user.edit', compact('user'));
     }
+
+    // show
+    public function show($id)
+    {
+        $user = User::findOrFail(intval($id));
+        return view('backend.user.show', compact('user'));    
+    }
 }

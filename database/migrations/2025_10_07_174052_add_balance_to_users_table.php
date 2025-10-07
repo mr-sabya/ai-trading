@@ -12,10 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(false);
-            $table->string('refer_code')->unique()->nullable();
-            $table->foreignId('referrer_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->string('image')->nullable();
+            $table->decimal('balance', 12, 2)->default(0)->after('email');
         });
     }
 
@@ -25,9 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['is_admin', 'refer_code', 'image']);
-            $table->dropForeign(['referrer_id']);
-            $table->dropColumn('referrer_id');
+            $table->dropColumn('balance');
         });
     }
 };

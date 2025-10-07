@@ -112,7 +112,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">My Profile</a>
                                 <a class="dropdown-item" href="#">My Balance</a>
-                                <a class="dropdown-item" href="#">Notifications</a>
+                                <a class="dropdown-item" href="{{ route('admin.notification.index') }}" wire:navigate>Notifications</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Account Setting</a>
                                 <div class="dropdown-divider"></div>

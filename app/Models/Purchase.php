@@ -140,6 +140,9 @@ class Purchase extends Model
                 'commission_percent' => $gen->commission_percent,
             ]);
 
+            // ✅ Add commission to the referrer's balance
+            $currentReferrer->increment('balance', $amount);
+
             // Move up to next referrer in the chain
             $currentReferrer = $currentReferrer->referrer;
             $currentGeneration++;

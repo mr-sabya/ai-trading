@@ -25,11 +25,17 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/user/create', [App\Http\Controllers\Backend\UserController::class, 'create'])->name('user.create');
     
     Route::get('/user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'edit'])->name('user.edit');
+
+    Route::get('/user/{id}', [App\Http\Controllers\Backend\UserController::class, 'show'])->name('user.show');
     
     // purchase
     Route::get('/purchase-list', [App\Http\Controllers\Backend\PurchaseController::class, 'index'])->name('purchase.index');
-
+    
     Route::get('/purchase/{id}/show', [App\Http\Controllers\Backend\PurchaseController::class, 'show'])->name('purchase.show');
+    
+    // notifications
+    Route::get('/notifications', [App\Http\Controllers\Backend\NotificationController::class, 'index'])->name('notification.index');
+
 
     // Settings group
     Route::prefix('settings')->name('settings.')->group(function () {

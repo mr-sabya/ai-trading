@@ -27,7 +27,8 @@
                                 Actions
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('admin.user.edit', $user->id) }}" wire:navigate class="dropdown-item">Edit</button></li>
+                                <li><a href="{{ route('admin.user.show', $user->id) }}" wire:navigate class="dropdown-item">Show</a></li>
+                                <li><a href="{{ route('admin.user.edit', $user->id) }}" wire:navigate class="dropdown-item">Edit</a></li>
                                 <li><button wire:click="confirmDelete({{ $user->id }})" class="dropdown-item text-danger">Delete</button></li>
                             </ul>
                         </div>

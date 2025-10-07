@@ -25,6 +25,7 @@ class User extends Authenticatable
         'refer_code', // Add this
         'refer_id',   // Add this
         'image',      // Add this
+        'balance',
     ];
 
     /**
@@ -51,19 +52,28 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Get the user who referred this user.
-     */
-    public function referrer()
+    public function purchases()
     {
-        return $this->belongsTo(User::class, 'refer_id');
+        return $this->hasMany(\App\Models\Purchase::class);
     }
 
-    /**
-     * Get the users that were referred by this user.
-     */
     public function referrals()
     {
-        return $this->hasMany(User::class, 'refer_id');
+        return $this->hasMany(User::class, 'referrer_id');
+    }
+
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referrer_id');
+    }
+
+    public function referralCommissions()
+    {
+        return $this->hasMany(\App\Models\ReferralCommission::class);
+    }
+
+    public function withdraws()
+    {
+        return $this->hasMany(\App\Models\Withdraw::class);
     }
 }

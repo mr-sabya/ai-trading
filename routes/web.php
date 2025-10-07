@@ -33,6 +33,12 @@ Route::middleware(['auth'])->group(function () {
 
     // package page
     Route::get('/user/package', [App\Http\Controllers\Frontend\User\ProfileController::class, 'package'])->name('profile.package');
+
+    //withdraw
+    Route::get('/user/withdraw', [App\Http\Controllers\Frontend\User\ProfileController::class, 'withdraw'])->name('profile.withdraw');
+
+    // referrals
+    Route::get('/user/referrals', [App\Http\Controllers\Frontend\User\ProfileController::class, 'referrals'])->name('profile.referrals');
     
     // checkout
     Route::get('/user/checkout/package/{id}', [App\Http\Controllers\Frontend\PageController::class, 'checkout'])->name('checkout.index');

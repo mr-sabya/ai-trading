@@ -17,7 +17,10 @@
                 <a href="{{ route('profile.package') }}" wire:navigate class="text-decoration-none">My Packages</a>
             </li>
             <li class="list-group-item">
-                <a href="#" class="text-decoration-none">Referrals</a>
+                <a href="{{ route('profile.withdraw') }}" wire:navigate class="text-decoration-none">Withdraw</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{ route('profile.referrals') }}" wire:navigate class="text-decoration-none">Referrals</a>
             </li>
             <li class="list-group-item">
                 <a href="#"

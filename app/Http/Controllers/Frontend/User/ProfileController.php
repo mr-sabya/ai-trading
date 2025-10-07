@@ -26,4 +26,16 @@ class ProfileController extends Controller
     {
         return view('frontend.user.package.index');
     }
+
+    // my package
+    public function withdraw()
+    {
+        return view('frontend.user.withdraw.index');
+    }
+
+    // referrals
+    public function referrals()
+    {
+        return view('frontend.user.referrals.index');
+    }
 }
