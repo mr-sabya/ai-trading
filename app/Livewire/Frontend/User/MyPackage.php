@@ -34,32 +34,6 @@ class MyPackage extends Component
         }
     }
 
-    public function buy($packageId)
-    {
-        if (!Auth::check()) {
-            $this->dispatchBrowserEvent('notify', ['type' => 'error', 'message' => 'Please login to purchase!']);
-            return;
-        }
-
-        $package = Package::findOrFail($packageId);
-
-        $purchase = Purchase::create([
-            'user_id' => Auth::id(),
-            'package_id' => $package->id,
-            'first_price' => $package->first_price,
-            'renew_price' => $package->renew_price,
-            'status' => 'completed',
-            'expires_at' => $package->billing_cycle === 'monthly'
-                ? now()->addMonth()
-                : now()->addYear(),
-        ]);
-
-        $purchase->recordHistory('purchase', $package->first_price);
-
-        $this->loadUserPurchases();
-
-        $this->dispatchBrowserEvent('notify', ['type' => 'success', 'message' => 'Package purchased successfully!']);
-    }
 
     public function renew($purchaseId)
     {

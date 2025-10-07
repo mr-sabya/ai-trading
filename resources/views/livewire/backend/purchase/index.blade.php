@@ -63,6 +63,7 @@
                                 Actions
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a href="{{ route('admin.purchase.show', $purchase->id) }}" wire:navigate class="dropdown-item text-success">Show</a></li>
                                 @if ($purchase->status === 'pending')
                                 <li><button wire:click="confirmApprove({{ $purchase->id }})" class="dropdown-item text-success">Approve</button></li>
                                 <li><button wire:click="confirmCancel({{ $purchase->id }})" class="dropdown-item text-warning">Cancel</button></li>

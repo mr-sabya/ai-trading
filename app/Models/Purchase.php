@@ -103,4 +103,46 @@ class Purchase extends Model
             'transaction_date' => now(),
         ]);
     }
+
+
+    public function referralCommissions()
+    {
+        return $this->hasMany(ReferralCommission::class);
+    }
+
+
+    public function generateReferralCommissions()
+    {
+        // Buyer
+        $buyer = $this->user;
+
+        if (!$buyer) return;
+
+        // Load generation rules
+        $generations = ReferralGeneration::orderBy('generation')->get();
+
+        $currentReferrer = $buyer->referrer; // 1st generation
+        $currentGeneration = 1;
+
+        foreach ($generations as $gen) {
+            if (!$currentReferrer) break; // Stop if no more referrers
+
+            // Calculate commission amount
+            $amount = ($this->first_price * $gen->commission_percent) / 100;
+
+            // Create commission record
+            ReferralCommission::create([
+                'purchase_id' => $this->id,
+                'user_id' => $currentReferrer->id,
+                'referred_user_id' => $buyer->id,
+                'generation' => $gen->generation,
+                'amount' => $amount,
+                'commission_percent' => $gen->commission_percent,
+            ]);
+
+            // Move up to next referrer in the chain
+            $currentReferrer = $currentReferrer->referrer;
+            $currentGeneration++;
+        }
+    }
 }

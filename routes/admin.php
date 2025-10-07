@@ -29,6 +29,8 @@ Route::middleware(['admin'])->group(function () {
     // purchase
     Route::get('/purchase-list', [App\Http\Controllers\Backend\PurchaseController::class, 'index'])->name('purchase.index');
 
+    Route::get('/purchase/{id}/show', [App\Http\Controllers\Backend\PurchaseController::class, 'show'])->name('purchase.show');
+
     // Settings group
     Route::prefix('settings')->name('settings.')->group(function () {
         Route::get('site-info', [App\Http\Controllers\Backend\SettingController::class, 'siteInfo'])->name('site-info');

@@ -98,6 +98,8 @@ class Index extends Component
             }
 
             $purchase->recordHistory('approved', $purchase->first_price); // Assuming first_price on approval
+            // Generate multi-level referral commissions
+            $purchase->generateReferralCommissions();
 
             $this->dispatch('notify', ['type' => 'success', 'message' => 'Purchase approved successfully.']);
         } else {
