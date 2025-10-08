@@ -39,8 +39,8 @@
                         </div>
                         @error('refer') <span class="invalid-feedback">{{ $message }}</span> @enderror
 
-                        @if($refer_id)
-                        <small class="text-success">Referrer user ID: {{ $refer_id }}</small>
+                        @if($referrer_id)
+                        <small class="text-success">Referrer user ID: {{ $referrer_id }}</small>
                         @endif
                     </div>
 

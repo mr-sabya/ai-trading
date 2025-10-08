@@ -59,7 +59,7 @@ class Register extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'refer_code' => $newReferCode,
-            'refer_id' => $referrerId,
+            'referrer_id' => $referrerId,
         ]);
 
         Auth::login($user);

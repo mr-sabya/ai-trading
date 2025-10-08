@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class Manage extends Component
 {
     public $userId;
-    public $name, $email, $password, $refer, $refer_id;
+    public $name, $email, $password, $refer, $referrer_id;
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -32,8 +32,8 @@ class Manage extends Component
 
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->refer_id = $user->refer_id;
-        $this->refer = $user->refer_id ? User::find($user->refer_id)?->refer_code : null;
+        $this->referrer_id = $user->referrer_id;
+        $this->refer = $user->referrer_id ? User::find($user->referrer_id)?->refer_code : null;
     }
 
     public function updated($field)
@@ -50,10 +50,10 @@ class Manage extends Component
         $referUser = User::where('refer_code', $this->refer)->first();
 
         if ($referUser) {
-            $this->refer_id = $referUser->id;
+            $this->referrer_id = $referUser->id;
             $this->dispatch('notify', ['type' => 'success', 'message' => 'Referrer found: ' . $referUser->name]);
         } else {
-            $this->refer_id = null;
+            $this->referrer_id = null;
             $this->dispatch('notify', ['type' => 'error', 'message' => 'No user found with this referral code.']);
         }
     }
@@ -79,7 +79,7 @@ class Manage extends Component
             $user->password = Hash::make($this->password);
         }
 
-        $user->refer_id = $this->refer_id;
+        $user->referrer_id = $this->referrer_id;
 
         if (!$this->userId) {
             $user->refer_code = mt_rand(100000, 999999);
@@ -96,7 +96,7 @@ class Manage extends Component
 
     public function resetForm()
     {
-        $this->reset(['userId', 'name', 'email', 'password', 'refer', 'refer_id']);
+        $this->reset(['userId', 'name', 'email', 'password', 'refer', 'referrer_id']);
         $this->resetValidation();
     }
 
