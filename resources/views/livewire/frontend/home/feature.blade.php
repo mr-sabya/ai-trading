@@ -43,11 +43,11 @@
                                     id="feat-pills-{{ $index }}" role="tabpanel"
                                     aria-labelledby="feat-pills-{{ $index }}-tab">
                                     <div class="feature__image floating-content">
-                                        <img src="{{ url($feature->main_image) }}" alt="Feature image">
+                                        <img src="{{ url('storage/'. $feature->main_image) }}" alt="Feature image">
 
                                         <div class="floating-content__top-right floating-content__top-right--style2">
                                             <div class="floating-content__item floating-content__item--style2 text-center">
-                                                <img src="{{ url($feature->floating_top_image) }}" alt="rating">
+                                                <img src="{{ url('storage/'. $feature->floating_top_image) }}" alt="rating">
                                                 <p class="style2">{{ $feature->floating_top_text }}</p>
                                             </div>
                                         </div>

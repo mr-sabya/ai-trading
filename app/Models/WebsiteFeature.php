@@ -9,6 +9,11 @@ class WebsiteFeature extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'title',
         'description',
@@ -19,5 +24,14 @@ class WebsiteFeature extends Model
         'floating_bottom_number',
         'floating_bottom_text',
         'is_active',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_active' => 'boolean',
     ];
 }

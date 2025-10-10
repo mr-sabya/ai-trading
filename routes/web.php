@@ -43,4 +43,6 @@ Route::middleware(['auth'])->group(function () {
     // checkout
     Route::get('/user/checkout/package/{id}', [App\Http\Controllers\Frontend\PageController::class, 'checkout'])->name('checkout.index');
 
+    
+
 });

@@ -12,7 +12,7 @@
                     <div class="service__item service__item--style1 text-center">
                         <div class="service__item-inner">
                             <div class="service__item-thumb mb-30">
-                                <img class="dark" src="{{ url($service->image) }}" alt="{{ $service->title }}">
+                                <img class="dark" src="{{ url('storage/' . $service->image) }}" alt="{{ $service->title }}">
                             </div>
                             <div class="service__item-content">
                                 <h5>

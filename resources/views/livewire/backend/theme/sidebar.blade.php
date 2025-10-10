@@ -93,7 +93,72 @@
                                     <span class="sub-item">Add User</span>
                                 </a>
                             </li>
-                            
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item {{ Request::routeIs('admin.website.*') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#websiteMenu" aria-expanded="{{ Request::routeIs('admin.website.*') ? 'true' : 'false' }}">
+                        <i class="fas fa-cog"></i>
+                        <p>Website</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse {{ Request::routeIs('admin.website.*') ? 'show' : '' }}" id="websiteMenu">
+                        <ul class="nav nav-collapse">
+                            <li class="{{ Request::routeIs('admin.website.banner.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.banner.index') }}" wire:navigate>
+                                    <span class="sub-item">Banner</span>
+                                </a>
+                            </li>
+                            <!-- partner -->
+                            <li class="{{ Request::routeIs('admin.website.partner.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.partner.index') }}" wire:navigate>
+                                    <span class="sub-item">Partner</span>
+                                </a>
+                            </li>
+
+                            <!-- about -->
+                            <li class="{{ Request::routeIs('admin.website.about.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.about.index') }}" wire:navigate>
+                                    <span class="sub-item">About</span>
+                                </a>
+                            </li>
+
+                            <!-- features -->
+                            <li class="{{ Request::routeIs('admin.website.features.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.features.index') }}" wire:navigate>
+                                    <span class="sub-item">Features</span>
+                                </a>
+                            </li>
+
+                            <!-- service -->
+                            <li class="{{ Request::routeIs('admin.website.service.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.service.index') }}" wire:navigate>
+                                    <span class="sub-item">Service</span>
+                                </a>
+                            </li>
+
+                            <!-- team -->
+                            <li class="{{ Request::routeIs('admin.website.team.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.team.index') }}" wire:navigate>
+                                    <span class="sub-item">Team Members</span>
+                                </a>
+                            </li>
+
+                            <!-- testimonial -->
+                            <li class="{{ Request::routeIs('admin.website.testimonial.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.testimonial.index') }}" wire:navigate>
+                                    <span class="sub-item">Testimonial</span>
+                                </a>
+                            </li>
+
+                            <!-- faq -->
+                            <li class="{{ Request::routeIs('admin.website.faq.index') ? 'active' : '' }}">
+                                <a href="{{ route('admin.website.faq.index') }}" wire:navigate>
+                                    <span class="sub-item">FAQ</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>

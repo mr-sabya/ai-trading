@@ -10,10 +10,10 @@
                             <div class="partner__item-inner">
                                 @if($partner->link)
                                 <a href="{{ $partner->link }}" target="_blank" rel="noopener">
-                                    <img src="{{ asset($partner->logo) }}" alt="{{ $partner->name }}" class="dark">
+                                    <img src="{{ url('storage/' . $partner->logo) }}" alt="{{ $partner->name }}" class="dark">
                                 </a>
                                 @else
-                                <img src="{{ asset($partner->logo) }}" alt="{{ $partner->name }}" class="dark">
+                                <img src="{{ url('storage/' . $partner->logo) }}" alt="{{ $partner->name }}" class="dark">
                                 @endif
                             </div>
                         </div>

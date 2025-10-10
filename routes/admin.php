@@ -21,18 +21,18 @@ Route::middleware(['admin'])->group(function () {
 
     // users
     Route::get('/users', [App\Http\Controllers\Backend\UserController::class, 'index'])->name('user.index');
-    
+
     Route::get('/user/create', [App\Http\Controllers\Backend\UserController::class, 'create'])->name('user.create');
-    
+
     Route::get('/user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'edit'])->name('user.edit');
 
     Route::get('/user/{id}', [App\Http\Controllers\Backend\UserController::class, 'show'])->name('user.show');
-    
+
     // purchase
     Route::get('/purchase-list', [App\Http\Controllers\Backend\PurchaseController::class, 'index'])->name('purchase.index');
-    
+
     Route::get('/purchase/{id}/show', [App\Http\Controllers\Backend\PurchaseController::class, 'show'])->name('purchase.show');
-    
+
     // notifications
     Route::get('/notifications', [App\Http\Controllers\Backend\NotificationController::class, 'index'])->name('notification.index');
 
@@ -46,4 +46,31 @@ Route::middleware(['admin'])->group(function () {
         Route::get('additional', [App\Http\Controllers\Backend\SettingController::class, 'additional'])->name('additional');
     });
 
+
+    // website 
+    Route::prefix('website')->name('website.')->group(function () {
+        // banner
+        Route::get('/banner', [App\Http\Controllers\Backend\WebsiteController::class, 'banner'])->name('banner.index');
+
+        // partner
+        Route::get('/partner', [App\Http\Controllers\Backend\WebsiteController::class, 'partner'])->name('partner.index');
+
+        // about
+        Route::get('/about', [App\Http\Controllers\Backend\WebsiteController::class, 'about'])->name('about.index');
+
+        // features
+        Route::get('/features', [App\Http\Controllers\Backend\WebsiteController::class, 'features'])->name('features.index');
+
+        // service
+        Route::get('/service', [App\Http\Controllers\Backend\WebsiteController::class, 'service'])->name('service.index');
+
+        // team members
+        Route::get('/team', [App\Http\Controllers\Backend\WebsiteController::class, 'team'])->name('team.index');
+
+        // testimonial
+        Route::get('/testimonial', [App\Http\Controllers\Backend\WebsiteController::class, 'testimonial'])->name('testimonial.index');
+
+        // faq
+        Route::get('/faq', [App\Http\Controllers\Backend\WebsiteController::class, 'faq'])->name('faq.index');
+    });
 });

@@ -29,7 +29,7 @@
                                     <div class="testimonial__footer">
                                         <div class="testimonial__author">
                                             <div class="testimonial__author-thumb">
-                                                <img src="{{ url($testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                                <img src="{{ url('storage/' . $testimonial->image) }}" alt="{{ $testimonial->name }}">
                                             </div>
                                             <div class="testimonial__author-designation">
                                                 <h6>{{ $testimonial->name }}</h6>

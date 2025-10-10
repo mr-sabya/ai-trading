@@ -12,7 +12,7 @@
                     <div class="team__item team__item--shape">
                         <div class="team__item-inner team__item-inner--shape">
                             <div class="team__item-thumb team__item-thumb--style1">
-                                <img src="{{ url($member->image) }}" alt="{{ $member->name }}" class="dark">
+                                <img src="{{ url('storage/' . $member->image) }}" alt="{{ $member->name }}" class="dark">
                             </div>
                             <div class="team__item-content team__item-content--style1">
                                 <div class="team__item-author team__item-author--style1">

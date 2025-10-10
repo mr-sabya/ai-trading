@@ -2,7 +2,7 @@
     <div class="banner__bg">
         <div class="banner__bg-element">
             @if($banner && $banner->background_image)
-            <img src="{{ asset($banner->background_image) }}" alt="section-bg-element" class="dark d-none d-lg-block">
+            <img src="{{ url('storage/' . $banner->background_image) }}" alt="section-bg-element" class="dark d-none d-lg-block">
             @endif
             <span class="bg-color d-lg-none"></span>
         </div>
@@ -67,7 +67,7 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="banner__thumb" data-aos="fade-left" data-aos-duration="1000">
                         @if($banner && $banner->image)
-                        <img src="{{ asset($banner->image) }}" alt="banner-thumb" class="dark">
+                        <img src="{{ url('storage/' . $banner->image) }}" alt="banner-thumb" class="dark">
                         @endif
                     </div>
                 </div>

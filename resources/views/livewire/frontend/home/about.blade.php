@@ -7,7 +7,7 @@
                     <div class="about__thumb pe-lg-5" data-aos="fade-right" data-aos-duration="800">
                         <div class="about__thumb-inner">
                             <div class="about__thumb-image floating-content">
-                                <img class="dark" src="{{ asset($about->image ?? 'assets/frontend/images/about/1.png') }}" alt="about-image">
+                                <img class="dark" src="{{ asset('storage/' . $about->image ?? 'assets/frontend/images/about/1.png') }}" alt="about-image">
 
                                 <div class="floating-content__top-left" data-aos="fade-right" data-aos-duration="1000">
                                     <div class="floating-content__item">
