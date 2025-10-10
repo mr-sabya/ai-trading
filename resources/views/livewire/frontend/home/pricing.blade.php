@@ -1,4 +1,4 @@
-<section class="pricing padding-top padding-bottom">
+<section class="pricing padding-top padding-bottom bg-color">
     <div class="section-header section-header--max50">
         <h2 class="mb-10 mt-minus-5">Our <span>pricing</span> plan</h2>
         <p>We offer the best pricings around - from installations to repairs, maintenance, and more!</p>
@@ -9,7 +9,7 @@
                 @foreach($packages as $package)
                 <div class="col-md-6 col-lg-4">
                     <div class="pricing__item" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="pricing__item-inner {{ $loop->first ? 'active' : '' }}">
+                        <div class="pricing__item-inner {{ $loop->index == 1 ? 'active' : '' }}">
                             <div class="pricing__item-content">
 
                                 <!-- Top -->

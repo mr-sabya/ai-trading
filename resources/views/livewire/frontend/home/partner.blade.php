@@ -3,41 +3,23 @@
         <div class="partner__wrapper">
             <div class="partner__slider swiper">
                 <div class="swiper-wrapper">
+
+                    @foreach($partners as $partner)
                     <div class="swiper-slide">
                         <div class="partner__item">
                             <div class="partner__item-inner">
-                                <img src="{{ url('assets/frontend/images/partner/light/1.png') }}" alt="partner logo" class="dark">
+                                @if($partner->link)
+                                <a href="{{ $partner->link }}" target="_blank" rel="noopener">
+                                    <img src="{{ asset($partner->logo) }}" alt="{{ $partner->name }}" class="dark">
+                                </a>
+                                @else
+                                <img src="{{ asset($partner->logo) }}" alt="{{ $partner->name }}" class="dark">
+                                @endif
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="partner__item">
-                            <div class="partner__item-inner">
-                                <img src="{{ url('assets/frontend/images/partner/light/2.png') }}" alt="partner logo" class="dark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="partner__item">
-                            <div class="partner__item-inner">
-                                <img src="{{ url('assets/frontend/images/partner/light/3.png') }}" alt="partner logo" class="dark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="partner__item">
-                            <div class="partner__item-inner">
-                                <img src="{{ url('assets/frontend/images/partner/light/4.png') }}" alt="partner logo" class="dark">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="partner__item">
-                            <div class="partner__item-inner">
-                                <img src="{{ url('assets/frontend/images/partner/light/5.png') }}" alt="partner logo" class="dark">
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

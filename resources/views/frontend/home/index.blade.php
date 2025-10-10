@@ -21,10 +21,6 @@
 <livewire:frontend.home.service />
 <!-- ===============>> Service section start here <<================= -->
 
-<!-- ========== Roadmap Section start Here========== -->
-<livewire:frontend.home.roadmap />
-<!-- ========== Roadmap Section Ends Here========== -->
-
 <!-- ===============>> Pricing section start here <<================= -->
 <livewire:frontend.home.pricing />
 <!-- ===============>> Pricing section start here <<================= -->

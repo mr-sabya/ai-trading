@@ -18,19 +18,19 @@
                                 with us</h3>
                             <ul class="social">
                                 <li class="social__item">
-                                    <a href="#" class="social__link social__link--style4 active"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="{{ $settings->facebook ?? '#' }}" target="_blank" class="social__link social__link--style4 active"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="#" class="social__link social__link--style4 "><i class="fab fa-instagram"></i></a>
+                                    <a href="{{ $settings->instagram ?? '#' }}" target="_blank" class="social__link social__link--style4 "><i class="fab fa-instagram"></i></a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="#" class="social__link social__link--style4"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="{{ $settings->linkedin ?? '#' }}" target="_blank" class="social__link social__link--style4"><i class="fa-brands fa-linkedin-in"></i></a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="#" class="social__link social__link--style4"><i class="fab fa-youtube"></i></a>
+                                    <a href="{{ $settings->youtube ?? '#' }}" target="_blank" class="social__link social__link--style4"><i class="fab fa-youtube"></i></a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="signin.html" class="social__link social__link--style4"><i class="fab fa-twitter"></i></a>
+                                    <a href="{{ $settings->twitter ?? '#' }}" target="_blank" class="social__link social__link--style4"><i class="fab fa-twitter"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -42,11 +42,9 @@
                                     </div>
                                     <div class="contact__item-content">
                                         <p>
-                                            0917749254
+                                            {{ $settings->phone }}
                                         </p>
-                                        <p>
-                                            0983888611
-                                        </p>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -57,11 +55,9 @@
                                     </div>
                                     <div class="contact__item-content">
                                         <p>
-                                            Bitrader@gmail.com
+                                            {{ $settings->email }}
                                         </p>
-                                        <p>
-                                            hello@gmail.com
-                                        </p>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -72,11 +68,9 @@
                                     </div>
                                     <div class="contact__item-content">
                                         <p>
-                                            88 Sheridan Street
+                                            {{ $settings->address }}
                                         </p>
-                                        <p>
-                                            534 Victoria Trail
-                                        </p>
+                                        
                                     </div>
                                 </div>
                             </div>
